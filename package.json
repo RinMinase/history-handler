@@ -16,6 +16,9 @@
     "redo",
     "history-handler"
   ],
+  "scripts": {
+    "release": "release-it --ci --no-increment --verbose || true"
+  },
   "dependencies": {},
   "devDependencies": {
     "bestzip": "^2.1.5",
