@@ -15,5 +15,11 @@
     "undo",
     "redo",
     "history-handler"
-  ]
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bestzip": "^2.1.5",
+    "release-it": "^13.5.2",
+    "uglify-js": "^3.9.0"
+  }
 }
