@@ -1,0 +1,19 @@
+{
+  "name": "history-handler",
+  "description": "",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Rin Minase",
+  "main": "index.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RinMinase/history-handler.git"
+  },
+  "keywords": [
+    "history",
+    "undo",
+    "redo",
+    "history-handler"
+  ]
+}
