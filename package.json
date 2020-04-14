@@ -17,6 +17,11 @@
     "history-handler"
   ],
   "scripts": {
+    "build": "npm run build:pre && npm run build:pretty && npm run build:min",
+    "build:pre": "rm -rf dist/ && mkdir dist",
+    "build:pretty": "uglifyjs index.js -b -o dist/history-handler.js",
+    "build:min": "uglifyjs index.js -c -m -o dist/history-handler.min.js",
+    "test": "",
     "release": "release-it --ci --no-increment --verbose || true"
   },
   "dependencies": {},
