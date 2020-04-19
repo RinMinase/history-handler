@@ -1,6 +1,6 @@
 {
   "name": "history-handler",
-  "description": "",
+  "description": "Handles your undo and redo, customizable to your liking",
   "version": "0.1.0",
   "license": "MIT",
   "author": "Rin Minase",
