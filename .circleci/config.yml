@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:13.12.0
+    branches:
+      only:
+        - master
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "be:1b:cc:02:15:29:d9:7a:47:c9:87:a7:78:a0:13:e4"
+      
+      - checkout
+
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
+      - run:
+          name: Installing dependenices
+          command: yarn install --frozen-lockfile
+
+      - run:
+          name: Build library
+          command: yarn build
+
+      - run:
+          name: Zipping dist folder for release
+          command: yarn zip
+
+      - run:
+          name: Publishing NPM Package
+          command: npm run release
