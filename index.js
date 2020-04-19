@@ -1,4 +1,4 @@
-export function history() {
+export default function history() {
     let historyBuffer = null;
     let historyUndo = [];
     let historyRedo = [];
