@@ -1,25 +1,40 @@
 export default function history() {
-    let historyBuffer = null;
-    let historyUndo = [];
-    let historyRedo = [];
+    let currentBuffer = null;
+    let undoBuffer = [];
+    let redoBuffer = [];
 
     return {
+
         /**
          * 
          */
         clear: function() {
-            historyBuffer = null;
-            historyUndo = [];
-            historyRedo = [];
+            currentBuffer = null;
+            undoBuffer = [];
+            redoBuffer = [];
         },
 
         /**
          * 
          */
-        buffer: function() {
-            if (historyBuffer) {
-                return historyBuffer;
+        getBuffer: function() {
+            if (currentBuffer) {
+                return currentBuffer;
             }
+        },
+        
+        /**
+         * 
+         */
+        getUndoBuffer: function() {
+            return undoBuffer;
+        },
+        
+        /**
+         * 
+         */
+        getRedoBuffer: function() {
+            return redoBuffer;
         },
 
         /**
@@ -27,29 +42,29 @@ export default function history() {
          * @param {object | number |string} obj 
          */
         action: function(obj) {
-            if (historyBuffer) {
-                historyUndo.push(Object.assign({}, historyBuffer));
+            if (currentBuffer) {
+                undoBuffer.push(Object.assign({}, currentBuffer));
 
-                if (historyUndo.length > 10) {
-                    historyUndo.splice(1, 1);
+                if (undoBuffer.length > 10) {
+                    undoBuffer.splice(1, 1);
                 }
             }
 
-            historyBuffer = obj;
-            historyRedo = [];
+            currentBuffer = obj;
+            redoBuffer = [];
         },
 
         /**
          * 
          */
         undo: function() {
-            if (historyUndo.length) {
-                const buffer = historyUndo.pop();
-                historyRedo.push(Object.assign({}, historyBuffer));
-                historyBuffer = buffer;
+            if (undoBuffer.length) {
+                const buffer = undoBuffer.pop();
+                redoBuffer.push(Object.assign({}, currentBuffer));
+                currentBuffer = buffer;
 
-                if (historyRedo.length > 10) {
-                    historyRedo.splice(1, 1);
+                if (redoBuffer.length > 10) {
+                    redoBuffer.splice(1, 1);
                 }
 
                 return buffer;
@@ -62,13 +77,13 @@ export default function history() {
          * 
          */
         redo: function() {
-            if (historyRedo.length) {
-                const buffer = historyRedo.pop();
-                historyUndo.push(Object.assign({}, historyBuffer));
-                historyBuffer = buffer;
+            if (redoBuffer.length) {
+                const buffer = redoBuffer.pop();
+                undoBuffer.push(Object.assign({}, currentBuffer));
+                currentBuffer = buffer;
 
-                if (historyUndo.length > 10) {
-                    historyUndo.splice(1, 1);
+                if (undoBuffer.length > 10) {
+                    undoBuffer.splice(1, 1);
                 }
 
                 return buffer;
