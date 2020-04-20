@@ -39,10 +39,6 @@ Handles your undo and redo, customizable to your liking
     ```typescript
     /** For TypeScript */
     import history from "history-handler";
-    // or
-    import * as history from "history-handler";
-    // or
-    import { undo, redo, clear, action buffer } from "history-handler"
     ```
 
 3. Use it in your code, like so
@@ -66,6 +62,39 @@ Handles your undo and redo, customizable to your liking
     const redo = history.redo();
     // variable would be "another action"
     ```
+
+## How it works
+
+This library contains 1 buffer and 2 array buffers to hold your objects for managing history.
+
+- `buffer` - contains the current action being done
+- `undo array buffer` - contains the previous actions being done
+- `redo array buffer` - contains the actions after using undo
+
+### What each method does:
+
+#### Action(object | string | number)
+- Pushes the current buffer to the undo stack
+- Pushes the `object | string | number` to the buffer
+
+#### Undo
+- Pushes the current buffer to the redo stack
+- Pops out the last element of the undo stack
+- Places the last element in the current buffer
+- Returns the buffer
+
+#### Redo
+- Pushes the current buffer to the undo stack
+- Pops out the last element of the redo stack
+- Places the last element in the current buffer
+- Returns the buffer
+
+#### Clear
+- Clears all the buffers
+
+#### Buffer
+- Returns the current buffer
+
 
 ## Built with
 * <img width=20 height=20 src="https://nodejs.org/static/images/favicons/favicon-32x32.png"> [NodeJS](https://nodejs.org/) - Library setup
