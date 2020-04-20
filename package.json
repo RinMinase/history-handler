@@ -38,8 +38,7 @@
     "mocha": "^7.1.1",
     "nyc": "^15.0.1",
     "release-it": "^13.5.4",
-    "terser": "^4.6.11",
-    "uglify-es": "^3.3.9"
+    "terser": "^4.6.11"
   },
   "babel": {
     "presets": [
