@@ -21,7 +21,8 @@
     "build:compile": "babel index.js --out-file dist/history-handler.js",
     "build:minify": "terser dist/history-handler.js -c -m --comments false -o dist/history-handler.min.js",
     "release": "release-it --ci --no-increment --verbose || true",
-    "test": "nyc --reporter=lcov mocha",
+    "test": "npm run test:pre && nyc --reporter=lcov mocha",
+    "test:pre": "rm -rf .nyc_output/ coverage/ && npm run build",
     "zip": "bestzip dist.zip dist/ && npm run zip:post",
     "zip:post": "node -e \"require('fs').rename('dist.zip', 'history-handler-'+process.env.npm_package_version+'-dist.zip', ()=>{})\""
   },
