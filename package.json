@@ -29,6 +29,10 @@
   "dependencies": {},
   "devDependencies": {
     "bestzip": "^2.1.5",
+    "chai": "^4.2.0",
+    "codecov": "^3.6.5",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.1",
     "release-it": "^13.5.4",
     "uglify-es": "^3.3.9"
   },
