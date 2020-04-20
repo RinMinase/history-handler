@@ -40,6 +40,9 @@
     "release-it": "^13.5.4",
     "uglify-es": "^3.3.9"
   },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  },
   "release-it": {
     "git": {
       "addUntrackedFiles": false,
