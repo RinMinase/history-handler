@@ -14,3 +14,7 @@ yarn-error.log*
 # Node/NPM/Yarn cache/storage/lock files
 node_modules/
 package-lock.json
+
+# Testing Output Files
+coverage/
+.nyc_output
