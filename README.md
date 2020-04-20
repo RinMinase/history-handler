@@ -56,7 +56,7 @@ Handles your undo and redo, customizable to your liking
 
     const action = history.undo();
     // variable would be "another action"
-    buffer = history.buffer();
+    buffer = history.getBuffer();
     // variable would be "action"
 
     const redo = history.redo();
@@ -92,8 +92,14 @@ This library contains 1 buffer and 2 array buffers to hold your objects for mana
 #### Clear
 - Clears all the buffers
 
-#### Buffer
+#### GetBuffer
 - Returns the current buffer
+
+#### GetUndoBuffer
+- Returns the undo array buffer
+
+#### GetRedoBuffer
+- Returns the redo array buffer
 
 
 ## Built with
