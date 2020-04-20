@@ -19,9 +19,8 @@
   "scripts": {
     "build": "npm run build:pre && npm run build:pretty && npm run build:min",
     "build:pre": "rm -rf dist/ && mkdir dist",
-    "build:pretty": "uglifyjs index.js -b -o dist/history-handler.js",
-    "build:min": "uglifyjs index.js -c -m -o dist/history-handler.min.js",
-    "compile": "babel index.js --out-file dist/history-handler.js",
+    "build:pretty": "babel index.js --out-file dist/history-handler.js",
+    "build:min": "terser dist/history-handler.js -c -m --comments false -o dist/history-handler.min.js",
     "test": "nyc --reporter=lcov mocha",
     "zip": "bestzip dist.zip dist/ && npm run zip:post",
     "zip:post": "node -e \"require('fs').rename('dist.zip', 'history-handler-'+process.env.npm_package_version+'-dist.zip', ()=>{})\"",
