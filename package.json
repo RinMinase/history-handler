@@ -28,6 +28,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
     "bestzip": "^2.1.5",
     "chai": "^4.2.0",
     "codecov": "^3.6.5",
