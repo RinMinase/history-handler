@@ -17,14 +17,13 @@
     "history-handler"
   ],
   "scripts": {
-    "build": "npm run build:pre && npm run build:pretty && npm run build:min",
-    "build:pre": "rm -rf dist/ && mkdir dist",
-    "build:pretty": "babel index.js --out-file dist/history-handler.js",
-    "build:min": "terser dist/history-handler.js -c -m --comments false -o dist/history-handler.min.js",
+    "build": "npm run build:compile && npm run build:minify",
+    "build:compile": "babel index.js --out-file dist/history-handler.js",
+    "build:minify": "terser dist/history-handler.js -c -m --comments false -o dist/history-handler.min.js",
+    "release": "release-it --ci --no-increment --verbose || true",
     "test": "nyc --reporter=lcov mocha",
     "zip": "bestzip dist.zip dist/ && npm run zip:post",
-    "zip:post": "node -e \"require('fs').rename('dist.zip', 'history-handler-'+process.env.npm_package_version+'-dist.zip', ()=>{})\"",
-    "release": "release-it --ci --no-increment --verbose || true"
+    "zip:post": "node -e \"require('fs').rename('dist.zip', 'history-handler-'+process.env.npm_package_version+'-dist.zip', ()=>{})\""
   },
   "dependencies": {},
   "devDependencies": {
