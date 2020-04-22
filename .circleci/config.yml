@@ -28,7 +28,7 @@ jobs:
 
       - run:
           name: Uploading coverage to Codecov
-          command: ./node_modules/.bin/codecov --token=$CODECOV_TOKEN
+          command: ./node_modules/.bin/codecov --token=$CODECOV_TOKEN || true
           no_output_timeout: 15s
 
       - run:
