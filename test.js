@@ -12,4 +12,15 @@ describe('HistoryHandler', () => {
 
 		require('./tests/undo-objects');
 	});
+
+	describe('#redo()', () => {
+		it('should return invalid when redo buffer is empty', () => {
+			const history = historyHandler();
+			const invalid = history.redo().invalid;
+
+			assert.equal(invalid, true);
+		});
+
+		require('./tests/redo-objects');
+	});
 })
