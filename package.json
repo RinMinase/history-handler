@@ -23,7 +23,7 @@
     "release": "release-it --ci --no-increment --verbose || true",
     "test": "run-s test:*",
     "test:clean": "rm -rf .nyc_output/ coverage/",
-    "test:execute": "nyc --reporter=lcov mocha",
+    "test:execute": "nyc --reporter=lcov --reporter=text-summary mocha",
     "test:post": "rm -rf .nyc_output/",
     "zip": "run-s zip:*",
     "zip:pre": "bestzip dist.zip dist/",
