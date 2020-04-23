@@ -17,6 +17,20 @@ describe('HistoryHandler', () => {
 			assert.equal(buffer.value, 1);
 		});
 	});
+	
+	describe('#getUndoBuffer()', () => {
+		it('should return the undo buffer', () => {
+			const history = historyHandler();
+
+			history.action({value: 1});
+			history.action({value: 2});
+			history.action({value: 3});
+		
+			const buffer = history.getUndoBuffer();
+		
+			assert.deepEqual(buffer, [{value: 1}, {value: 2}]);
+		});
+	});
 
 	describe('#undo()', () => {
 		it('should return invalid when undo buffer is empty', () => {
