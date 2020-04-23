@@ -15,8 +15,8 @@
     <a href="https://www.npmjs.com/package/history-handler">
         <img alt="NPM-DM" src="https://img.shields.io/npm/dw/history-handler?logo=npm&style=for-the-badge">
     </a>
-    <a href="https://codecov.io/gh/RinMinase/history-handler">
-        <img alt="Codecov" src="https://img.shields.io/codecov/c/gh/RinMinase/history-handler?logo=codecov&style=for-the-badge" />
+    <a href="https://coveralls.io/github/RinMinase/history-handler">
+        <img alt="Coverage" src="https://img.shields.io/coveralls/github/RinMinase/history-handler?logo=coveralls&style=for-the-badge" />
     </a>
 </p>
 
