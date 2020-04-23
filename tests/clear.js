@@ -22,7 +22,7 @@ it('should clear the undo buffer', () => {
 
 	const buffer = history.getUndoBuffer();
 
-	assert.equal(buffer.length, 0);
+	assert.deepEqual(buffer, []);
 });
 
 it('should clear the redo buffer', () => {
@@ -39,5 +39,5 @@ it('should clear the redo buffer', () => {
 
 	const buffer = history.getRedoBuffer();
 
-	assert.equal(buffer.length, 0);
+	assert.deepEqual(buffer, []);
 });
