@@ -31,6 +31,34 @@ describe('HistoryHandler', () => {
 			assert.deepEqual(buffer, [{value: 1}, {value: 2}]);
 		});
 	});
+	
+	describe('#getRedoBuffer()', () => {
+		it('should return the redo buffer', () => {
+			const history = historyHandler();
+
+			history.action({value: 1});
+			history.action({value: 2});
+			history.action({value: 3});
+			history.action({value: 4});
+			/**
+			 * Buffers should now be:
+			 *   Undo: [{value: 1}, {value: 2}, {value: 3}],
+			 *   Buffer: {value: 4}
+			 */
+			
+			history.undo();
+			/**
+			 * Buffers should now be:
+			 *   Undo: [{value: 1}, {value: 2}],
+			 *   Buffer: {value: 3}
+			 *   Redo: [{value: 4}]
+			 */
+		
+			const buffer = history.getRedoBuffer();
+
+			assert.deepEqual(buffer, [{value: 4}]);
+		});
+	});
 
 	describe('#undo()', () => {
 		it('should return invalid when undo buffer is empty', () => {
