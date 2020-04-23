@@ -28,7 +28,11 @@ jobs:
 
       - run:
           name: Testing source code
-          command: yarn test || true
+          command: yarn test
+
+      - run:
+          name: Uploading coverage to Coveralls
+          command: yarn coverage
           no_output_timeout: 15s
 
       - run:
