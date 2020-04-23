@@ -2,6 +2,10 @@ const { assert, expect, should } = require('chai');
 const historyHandler = require('./dist/history-handler').default;
 
 describe('HistoryHandler', () => {
+	describe('#clear()', () => {
+		require('./tests/clear');
+	});
+
 	describe('#undo()', () => {
 		it('should return invalid when undo buffer is empty', () => {
 			const history = historyHandler();
