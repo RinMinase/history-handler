@@ -28,11 +28,7 @@ jobs:
 
       - run:
           name: Testing source code
-          command: yarn test
-
-      - run:
-          name: Uploading coverage to Codecov
-          command: ./node_modules/.bin/codecov --token=$CODECOV_TOKEN || true
+          command: yarn test || true
           no_output_timeout: 15s
 
       - run:
