@@ -18,3 +18,4 @@ package-lock.json
 # Testing Output Files
 coverage/
 .nyc_output
+*.lcov
