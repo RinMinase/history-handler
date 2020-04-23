@@ -31,11 +31,6 @@ jobs:
           command: yarn test
 
       - run:
-          name: Uploading coverage to Coveralls
-          command: yarn coverage
-          no_output_timeout: 15s
-
-      - run:
           name: Zipping dist folder for release
           command: yarn zip
 
