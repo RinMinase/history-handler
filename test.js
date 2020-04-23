@@ -5,6 +5,18 @@ describe('HistoryHandler', () => {
 	describe('#clear()', () => {
 		require('./tests/clear');
 	});
+	
+	describe('#getBuffer()', () => {
+		it('should return the buffer', () => {
+			const history = historyHandler();
+		
+			history.action({value: 1});
+		
+			const buffer = history.getBuffer();
+		
+			assert.equal(buffer.value, 1);
+		});
+	});
 
 	describe('#undo()', () => {
 		it('should return invalid when undo buffer is empty', () => {
