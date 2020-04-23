@@ -25,7 +25,12 @@ describe('HistoryHandler', () => {
 			history.action({value: 1});
 			history.action({value: 2});
 			history.action({value: 3});
-		
+			/**
+			 * Buffers should now be:
+			 *   Undo: [{value: 1}, {value: 2}],
+			 *   Buffer: {value: 3}
+			 */
+			
 			const buffer = history.getUndoBuffer();
 		
 			assert.deepEqual(buffer, [{value: 1}, {value: 2}]);
