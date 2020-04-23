@@ -27,7 +27,7 @@ describe('HistoryHandler', () => {
 			history.action({value: 3});
 			/**
 			 * Buffers should now be:
-			 *   Undo: [{value: 1}, {value: 2}],
+			 *   Undo: [{value: 1}, {value: 2}]
 			 *   Buffer: {value: 3}
 			 */
 			
@@ -47,14 +47,14 @@ describe('HistoryHandler', () => {
 			history.action({value: 4});
 			/**
 			 * Buffers should now be:
-			 *   Undo: [{value: 1}, {value: 2}, {value: 3}],
+			 *   Undo: [{value: 1}, {value: 2}, {value: 3}]
 			 *   Buffer: {value: 4}
 			 */
 			
 			history.undo();
 			/**
 			 * Buffers should now be:
-			 *   Undo: [{value: 1}, {value: 2}],
+			 *   Undo: [{value: 1}, {value: 2}]
 			 *   Buffer: {value: 3}
 			 *   Redo: [{value: 4}]
 			 */
@@ -63,6 +63,24 @@ describe('HistoryHandler', () => {
 
 			assert.deepEqual(buffer, [{value: 4}]);
 		});
+	});
+
+	describe('#action()', () => {
+		it('should return invalid when undo buffer is empty', () => {
+			const history = historyHandler();
+
+			history.action({value: 1});
+			/**
+			 * Buffers should now be:
+			 *   Buffer: {value: 1}
+			 */
+
+			const buffer = history.getBuffer();
+
+			assert.deepEqual(buffer, {value: 1});
+		});
+
+		require('./tests/undo-objects');
 	});
 
 	describe('#undo()', () => {
