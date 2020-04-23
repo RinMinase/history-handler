@@ -20,6 +20,8 @@
     "build": "run-s build:*",
     "build:compile": "babel index.js --out-file dist/history-handler.js",
     "build:minify": "terser dist/history-handler.js -c -m --comments false -o dist/history-handler.min.js",
+    "localcov": "run-s test:clean localcov:* test:post",
+    "localcov:coverage": "nyc --reporter=text-summary --reporter=lcov mocha",
     "release": "release-it --ci --no-increment --verbose || true",
     "test": "run-s test:*",
     "test:clean": "rm -rf .nyc_output/ coverage/",
