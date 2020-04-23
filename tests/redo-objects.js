@@ -8,34 +8,40 @@ describe('Objects', () => {
 		history.action({value: 1});
 		/**
 		 * Buffers should now be:
-		 *   Undo: [],
+		 *   Undo: []
 		 *   Buffer: {value: 1}
 		 */
 
 		 history.action({value: 2});
 		/**
 		 * Buffers should now be:
-		 *   Undo: [{value: 1}],
+		 *   Undo: [{value: 1}]
 		 *   Buffer: {value: 2}
 		 */
 
 		history.action({value: 3});
 		/**
 		 * Buffers should now be:
-		 *   Undo: [{value: 1}, {value: 2}],
+		 *   Undo: [{value: 1}, {value: 2}]
 		 *   Buffer: {value: 3}
 		 */
 
 		history.undo();
 		/**
 		 * Buffers should now be:
-		 *   Undo: [{value: 1}],
+		 *   Undo: [{value: 1}]
 		 *   Buffer: {value: 2}
 		 *   Redo: [{value: 3}]
 		 */
 
-		const value = history.redo().value;
+		const redo = history.redo();
+		/**
+		 * Buffers should now be:
+		 *   Undo: [{value: 1}, {value: 2}]
+		 *   Buffer: {value: 3}
+		 *   Redo: []
+		 */
 
-		assert.equal(value, 3);
+		assert.deepEqual(redo, {value: 3});
 	});
 });
