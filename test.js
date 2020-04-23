@@ -86,9 +86,9 @@ describe('HistoryHandler', () => {
 	describe('#undo()', () => {
 		it('should return invalid when undo buffer is empty', () => {
 			const history = historyHandler();
-			const invalid = history.undo().invalid;
+			const buffer = history.undo();
 
-			assert.equal(invalid, true);
+			assert.deepEqual(buffer, {invalid: true});
 		});
 
 		require('./tests/undo-objects');
@@ -97,9 +97,9 @@ describe('HistoryHandler', () => {
 	describe('#redo()', () => {
 		it('should return invalid when redo buffer is empty', () => {
 			const history = historyHandler();
-			const invalid = history.redo().invalid;
+			const buffer = history.redo();
 
-			assert.equal(invalid, true);
+			assert.deepEqual(buffer, {invalid: true});
 		});
 
 		require('./tests/redo-objects');
