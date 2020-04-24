@@ -46,7 +46,7 @@ export default function history() {
 				undoBuffer.push(Object.assign({}, currentBuffer));
 
 				if (undoBuffer.length > 10) {
-					undoBuffer.splice(1, 1);
+					undoBuffer.splice(0, 1);
 				}
 			}
 
