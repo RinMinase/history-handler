@@ -65,7 +65,7 @@
     "github": {
       "release": true,
       "releaseName": "${version}",
-      "assets": "history-handler-*-dist.js"
+      "assets": "dist/*.js"
     },
     "npm": {
       "publish": true,
