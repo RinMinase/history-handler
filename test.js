@@ -115,6 +115,7 @@ describe('HistoryHandler', () => {
 			assert.deepEqual(buffer, {invalid: true});
 		});
 
+		require('./tests/undo-values');
 		require('./tests/undo-objects');
 	});
 
