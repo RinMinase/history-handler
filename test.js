@@ -126,6 +126,7 @@ describe('HistoryHandler', () => {
 			assert.deepEqual(buffer, {invalid: true});
 		});
 
+		require('./tests/redo-values');
 		require('./tests/redo-objects');
 	});
 })
