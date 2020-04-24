@@ -1,4 +1,4 @@
-const { assert, expect, should } = require('chai');
+const { assert } = require('chai');
 const historyHandler = require('../dist/history-handler').default;
 
 describe('Values', () => {
