@@ -67,10 +67,6 @@ export default function history(bufferLength = 10) {
 				redoBuffer.push(Object.assign({}, currentBuffer));
 				currentBuffer = buffer;
 
-				if (redoBuffer.length > bufferLength) {
-					redoBuffer.splice(1, 1);
-				}
-
 				return buffer;
 			}
 
@@ -85,10 +81,6 @@ export default function history(bufferLength = 10) {
 				const buffer = redoBuffer.pop();
 				undoBuffer.push(Object.assign({}, currentBuffer));
 				currentBuffer = buffer;
-
-				if (undoBuffer.length > bufferLength) {
-					undoBuffer.splice(1, 1);
-				}
 
 				return buffer;
 			}
