@@ -45,6 +45,10 @@
     "release-it": "^13.5.5",
     "terser": "^4.6.11"
   },
+  "browserslist": [
+    "> 0.5% and last 2 versions",
+    "not IE 11"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env"
