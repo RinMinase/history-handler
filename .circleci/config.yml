@@ -31,9 +31,5 @@ jobs:
           command: yarn test
 
       - run:
-          name: Zipping dist folder for release
-          command: yarn zip
-
-      - run:
           name: Publishing NPM Package
           command: npm run release
