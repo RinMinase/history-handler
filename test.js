@@ -66,21 +66,7 @@ describe('HistoryHandler', () => {
 	});
 
 	describe('#action()', () => {
-		it('should return invalid when undo buffer is empty', () => {
-			const history = historyHandler();
-
-			history.action({value: 1});
-			/**
-			 * Buffers should now be:
-			 *   Buffer: {value: 1}
-			 */
-
-			const buffer = history.getBuffer();
-
-			assert.deepEqual(buffer, {value: 1});
-		});
-
-		require('./tests/undo-objects');
+		require('./tests/action');
 	});
 
 	describe('#undo()', () => {
