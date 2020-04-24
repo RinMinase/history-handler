@@ -1,4 +1,8 @@
-export default function history() {
+/**
+ * 
+ * @param {Number} bufferLength Length of the undo and redo buffers
+ */
+export default function history(bufferLength = 10) {
 	let currentBuffer = null;
 	let undoBuffer = [];
 	let redoBuffer = [];
@@ -45,7 +49,7 @@ export default function history() {
 			if (currentBuffer) {
 				undoBuffer.push(Object.assign({}, currentBuffer));
 
-				if (undoBuffer.length > 10) {
+				if (undoBuffer.length > bufferLength) {
 					undoBuffer.splice(0, 1);
 				}
 			}
@@ -63,7 +67,7 @@ export default function history() {
 				redoBuffer.push(Object.assign({}, currentBuffer));
 				currentBuffer = buffer;
 
-				if (redoBuffer.length > 10) {
+				if (redoBuffer.length > bufferLength) {
 					redoBuffer.splice(1, 1);
 				}
 
@@ -82,7 +86,7 @@ export default function history() {
 				undoBuffer.push(Object.assign({}, currentBuffer));
 				currentBuffer = buffer;
 
-				if (undoBuffer.length > 10) {
+				if (undoBuffer.length > bufferLength) {
 					undoBuffer.splice(1, 1);
 				}
 
