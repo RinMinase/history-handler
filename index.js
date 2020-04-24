@@ -47,7 +47,11 @@ export default function history(bufferLength = 10) {
 		 */
 		action: function(obj) {
 			if (currentBuffer) {
-				undoBuffer.push(Object.assign({}, currentBuffer));
+				if (typeof obj == 'object') {
+					undoBuffer.push(Object.assign({}, currentBuffer));
+				} else {
+					undoBuffer.push(currentBuffer)
+				}
 
 				if (undoBuffer.length > bufferLength) {
 					undoBuffer.splice(0, 1);
@@ -64,7 +68,13 @@ export default function history(bufferLength = 10) {
 		undo: function() {
 			if (undoBuffer.length) {
 				const buffer = undoBuffer.pop();
-				redoBuffer.push(Object.assign({}, currentBuffer));
+				
+				if (typeof currentBuffer == 'object') {
+					redoBuffer.push(Object.assign({}, currentBuffer));
+				} else {
+					redoBuffer.push(currentBuffer);
+				}
+
 				currentBuffer = buffer;
 
 				return buffer;
@@ -79,7 +89,13 @@ export default function history(bufferLength = 10) {
 		redo: function() {
 			if (redoBuffer.length) {
 				const buffer = redoBuffer.pop();
-				undoBuffer.push(Object.assign({}, currentBuffer));
+
+				if (typeof currentBuffer == 'object') {
+					undoBuffer.push(Object.assign({}, currentBuffer));
+				} else {
+					undoBuffer.push(currentBuffer);
+				}
+				
 				currentBuffer = buffer;
 
 				return buffer;
