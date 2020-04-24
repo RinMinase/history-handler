@@ -51,6 +51,9 @@
     ]
   },
   "release-it": {
+    "dist": {
+      "baseDir": null
+    },
     "git": {
       "addUntrackedFiles": false,
       "commit": false,
