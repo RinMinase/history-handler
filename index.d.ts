@@ -1,4 +1,4 @@
-export default function history(): {
+export default function history(bufferLength: number): {
     clear(): void,
 
     getBuffer(): object | number | string,
