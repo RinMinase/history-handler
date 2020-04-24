@@ -55,7 +55,7 @@
       "baseDir": null
     },
     "git": {
-      "addUntrackedFiles": false,
+      "addUntrackedFiles": true,
       "commit": false,
       "tag": false,
       "push": false,
