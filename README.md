@@ -26,6 +26,16 @@ Handles your undo and redo, customizable to your liking
 
 ## Usage & Demo
 
+### GitHub Release
+
+1. Place this line on your template file:
+
+    ```html
+    <script src="https://github.com/RinMinase/history-handler/releases/latest/downloa/history-handler.min.js"></script>
+    ```
+
+### NPM
+
 1. You can install ***history-handler*** using npm
 
     ```bash
