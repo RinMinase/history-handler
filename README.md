@@ -31,7 +31,7 @@ Handles your undo and redo, customizable to your liking
 1. Place this line on your template file:
 
     ```html
-    <script src="https://github.com/RinMinase/history-handler/releases/latest/downloa/history-handler.min.js"></script>
+    <script src="https://github.com/RinMinase/history-handler/releases/latest/download/history-handler.min.js"></script>
     ```
 
 ### NPM
