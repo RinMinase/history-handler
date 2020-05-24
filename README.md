@@ -84,34 +84,39 @@ This library contains 1 buffer and 2 array buffers to hold your objects for mana
 - `undo array buffer` - contains the previous actions being done
 - `redo array buffer` - contains the actions after using undo
 
-### What each method does:
+## What each method does:
 
-#### Action(object | string | number)
+### (constructor) history(buffer_length: number)
+- The `buffer_length` indicates the limit of the undo and redo buffers
+- Has a `default value` of `10`
+- If new items go beyond the stated length, the lowest item in the buffer would be removed
+
+### Action(item: object | string | number)
 - Pushes the current buffer to the undo stack
-- Pushes the `object | string | number` to the buffer
+- Pushes the `item` of types `object | string | number` to the buffer
 
-#### Undo
+### Undo: object | string | number
 - Pushes the current buffer to the redo stack
 - Pops out the last element of the undo stack
 - Places the last element in the current buffer
 - Returns the buffer
 
-#### Redo
+### Redo: object | string | number
 - Pushes the current buffer to the undo stack
 - Pops out the last element of the redo stack
 - Places the last element in the current buffer
 - Returns the buffer
 
-#### Clear
+### Clear: void
 - Clears all the buffers
 
-#### GetBuffer
+### GetBuffer: object | string | number
 - Returns the current buffer
 
-#### GetUndoBuffer
+### GetUndoBuffer: Array < object | string | number >
 - Returns the undo array buffer
 
-#### GetRedoBuffer
+### GetRedoBuffer: Array < object | string | number >
 - Returns the redo array buffer
 
 
