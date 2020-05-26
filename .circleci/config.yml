@@ -31,5 +31,9 @@ jobs:
           command: yarn test
 
       - run:
-          name: Publishing NPM an GitHub Releases
+          name: Publishing GitHub Releases
           command: npm run release
+
+      - run:
+          name: Publishing NPM Package
+          command: npm publish

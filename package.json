@@ -63,10 +63,7 @@
       "assets": "dist/*.js"
     },
     "npm": {
-      "publish": true,
-      "publishConfig": {
-        "access": "public"
-      }
+      "publish": false
     }
   }
 }
