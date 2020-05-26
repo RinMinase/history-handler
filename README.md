@@ -13,7 +13,7 @@
         <img alt="Bundle-Phobia" src="https://img.shields.io/bundlephobia/minzip/history-handler?logo=webpack&logoColor=white&style=for-the-badge">
     </a>&nbsp;
     <a href="https://www.npmjs.com/package/history-handler">
-        <img alt="NPM-DM" src="https://img.shields.io/npm/dw/history-handler?logo=npm&style=for-the-badge">
+        <img alt="NPM-DM" src="https://img.shields.io/npm/dm/history-handler?logo=npm&style=for-the-badge">
     </a>
     <a href="https://coveralls.io/github/RinMinase/history-handler">
         <img alt="Coverage" src="https://img.shields.io/coveralls/github/RinMinase/history-handler?logo=coveralls&style=for-the-badge" />
