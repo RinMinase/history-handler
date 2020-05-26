@@ -1,7 +1,7 @@
 {
   "name": "history-handler",
   "description": "Handles your undo and redo, customizable to your liking",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "license": "MIT",
   "author": "Rin Minase",
   "main": "index.js",
