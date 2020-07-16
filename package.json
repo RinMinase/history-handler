@@ -26,7 +26,8 @@
     "test:clean": "rm -rf .nyc_output/ coverage/",
     "test:coverage": "nyc mocha || true && nyc report --reporter=text-lcov | coveralls",
     "test:local": "nyc --reporter=text-summary --reporter=lcov mocha || true",
-    "test:post": "rm -rf .nyc_output/"
+    "test:post": "rm -rf .nyc_output/",
+    "logs": "auto-changelog"
   },
   "dependencies": {},
   "devDependencies": {
@@ -41,6 +42,13 @@
     "nyc": "^15.1.0",
     "release-it": "^13.6.5",
     "terser": "^4.8.0"
+  },
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "package": true,
+    "unreleasedOnly": true,
+    "commitLimit": 15,
+    "backfillLimit": 15
   },
   "browserslist": [
     "> 0.5% and last 2 versions",
